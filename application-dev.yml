@@ -1,8 +1,3 @@
-eureka:
-  client:
-    service-url:
-      defaultZone: http://panda-server:8761/eureka/
-
 server:
   tomcat:
     max-threads: 500 # Maximum amount of worker threads.
@@ -22,10 +17,25 @@ spring:
     hikari:
       minimum-idle: 0
   redis:
-    host: 172.18.56.142
-    port: 39000
-    password: 
-
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+    timeout: 10000
+    lettuce:
+      pool:
+        max-idle: 30
+        min-idle: 10
+        max-active: 30
+        max-wait: 10000
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+  http:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB
 redis:
   cache:
     expiration: 3601
@@ -69,13 +79,9 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 60000
-
 #关闭验证
 management:
   metrics:
     web:
       server:
         auto-time-requests: false
-
-
- 
