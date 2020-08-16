@@ -29,9 +29,9 @@ spring:
         max-wait: 10000
   rabbitmq:
     host: 127.0.0.1
-    port: 15672
-    username: guest
-    password: guest
+    port: 5672
+    username: springcloud
+    password: springcloud
   http:
     multipart:
       max-file-size: 1000MB
