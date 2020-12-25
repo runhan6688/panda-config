@@ -17,7 +17,7 @@ spring:
     hikari:
       minimum-idle: 0
   redis:
-    password: 123456
+    password: 
     timeout: 10000
     lettuce:
       pool:
