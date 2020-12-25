@@ -17,8 +17,6 @@ spring:
     hikari:
       minimum-idle: 0
   redis:
-    host: 127.0.0.1
-    port: 6379
     password: 123456
     timeout: 10000
     lettuce:
@@ -27,6 +25,14 @@ spring:
         min-idle: 10
         max-active: 30
         max-wait: 10000
+    cluster:
+      nodes:
+        --172.18.56.143:39000
+        --172.18.56.143:39001
+        --172.18.56.144:39000
+        --172.18.56.144:39001
+        --172.18.56.142:39000
+        --172.18.56.142:39001
   rabbitmq:
     host: 127.0.0.1
     port: 5672
