@@ -44,10 +44,6 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
    consumer:
       group-id: springcloudtest
-  http:
-    multipart:
-      max-file-size: 1000MB
-      max-request-size: 1000MB
 redis:
   cache:
     expiration: 3601
