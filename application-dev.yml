@@ -35,14 +35,7 @@ spring:
         - 172.18.56.142:39001
       max-redirects: 3
   kafka:
-    producer:
-      servers: 172.18.56.143:9092,172.18.56.142:9092,172.18.56.144:9092
-      batch:
-        size: 4096
-      retries: 5
-      linger: 0
-      buffer: 
-        memory: 40960
+    bootstrap-servers: 172.18.56.143:9092,172.18.56.142:9092,172.18.56.144:9092
   rabbitmq:
     host: 127.0.0.1
     port: 5672
