@@ -42,8 +42,6 @@ spring:
       buffer-memory: 33554432
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
-   consumer:
-      group-id: springcloudtest
 redis:
   cache:
     expiration: 3601
