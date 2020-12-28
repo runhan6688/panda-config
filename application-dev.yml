@@ -42,7 +42,7 @@ spring:
       buffer-memory: 33554432
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
-   consumer:
+    consumer:
       group-id: ideal-consumer-group
       auto-offset-reset: earliest
       enable-auto-commit: true
