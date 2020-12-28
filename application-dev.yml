@@ -36,11 +36,14 @@ spring:
       max-redirects: 3
   kafka:
     bootstrap-servers: 172.18.56.143:9092,172.18.56.142:9092,172.18.56.144:9092
-  rabbitmq:
-    host: 127.0.0.1
-    port: 5672
-    username: springcloud
-    password: springcloud
+    producer:
+      retries: 0
+      batch-size: 16384
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+   consumer:
+      group-id: springcloudtest
   http:
     multipart:
       max-file-size: 1000MB
