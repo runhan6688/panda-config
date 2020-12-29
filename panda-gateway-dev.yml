@@ -18,3 +18,9 @@ swagger:
 # 关闭默认路由
 zuul:
   ignoredServices: '*'
+  ratelimit:
+    enabled: true
+    default-policy: 
+      limit: 3
+      refresh-interval: 60
+      type: origin
