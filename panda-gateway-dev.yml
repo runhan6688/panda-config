@@ -21,6 +21,6 @@ zuul:
   ratelimit:
     enabled: true
     default-policy: 
-      limit: 3
-      refresh-interval: 60
+      limit: 15
+      refresh-interval: 6
       type: origin
