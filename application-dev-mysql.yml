@@ -1,0 +1,100 @@
+server:
+  tomcat:
+    max-threads: 500 # Maximum amount of worker threads.
+    min-spare-threads: 50 # Minimum amount of worker threads
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/e200pro?useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: pmAdmin-1
+    max-idle: 10
+    min-idle: 5
+    test-on-borrow: false
+    time-between-eviction-runs-millis: 18800
+    test-while-idle: true
+    validation-query: SELECT 1
+    hikari:
+      minimum-idle: 0
+  redis:
+    password: 
+    timeout: 10000
+    lettuce:
+      pool:
+        max-idle: 30
+        min-idle: 10
+        max-active: 30
+        max-wait: 10000
+    cluster:
+      nodes:
+        - 172.18.56.143:39000
+        - 172.18.56.143:39001
+        - 172.18.56.144:39000
+        - 172.18.56.144:39001
+        - 172.18.56.142:39000
+        - 172.18.56.142:39001
+      max-redirects: 3
+  kafka:
+    bootstrap-servers: 172.18.56.143:9092,172.18.56.142:9092,172.18.56.144:9092
+    producer:
+      retries: 0
+      batch-size: 16384
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: ideal-consumer-group
+      auto-offset-reset: earliest
+      enable-auto-commit: true
+      auto-commit-interval: 20000
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+redis:
+  cache:
+    expiration: 3601
+ribbon:
+  eager-load:
+    enabled: true
+    clients: panda-auth,panda-user-service
+  Httpclient:
+    enabled: true
+  OkHttp:
+    enabled: false
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+
+feign:
+  hystrix:
+    enabled: true
+  okhttp:
+    enabled: false
+  httpclient:
+    enabled: true
+  client:
+    config:
+      feignName:
+        connectTimeout: 30000
+        readTimeout: 30000
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+hystrix:
+  threadpool:
+    default:
+      coreSize: 500
+      maxQueueSize: 1000
+      queueSizeRejectionThreshold: 800
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+#关闭验证
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false
