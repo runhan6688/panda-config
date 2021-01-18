@@ -35,17 +35,8 @@ spring:
         - 172.18.56.142:39001
       max-redirects: 3
   kafka:
-    jaas:
-      options: 
-        useKeyTab: true
-        keyTab: user.keytab
-        principal: kafkauser
-        useTicketCache: false
-        storeKey: true
-        debug: true
-      enabled: true
-    #bootstrap-servers: 172.18.56.143:9092,172.18.56.142:9092,172.18.56.144:9092
-    bootstrap-servers: 124.70.28.201:21007,121.36.75.84:21007,121.36.13.25:21007
+    bootstrap-servers: 172.18.56.143:9092,172.18.56.142:9092,172.18.56.144:9092
+    #bootstrap-servers: 124.70.28.201:21007,121.36.75.84:21007,121.36.13.25:21007
     producer:
       retries: 0
       batch-size: 16384
